@@ -17,4 +17,7 @@ public class CategoryUtils {
     public static Response createCategory(CategoryDTO body) {
         return Utils.ApiRequests.post(Constants.CATEGORY_END_POINT, body);
     }
+    public static Response updateCategory( CategoryDTO body, int id) {
+        return Utils.ApiRequests.put(Constants.CATEGORY_END_POINT, id,  body);
+    }
 }

@@ -43,6 +43,5 @@ public class CategoriesTest {
                 .build();
         Response response = CategoryUtils.createCategory(body);
         Assert.assertEquals(response.statusCode(), 201, "Status is not correct");
-
     }
 }
