@@ -59,7 +59,7 @@ public class ProductsTests {
                 .images(List.of("https://placehold.co/600x400"))
                 .build();
 
-        Response response = ProductsUtils.updateProduct(2, body);
+        Response response = ProductsUtils.updateProduct(11, body);
         Assert.assertEquals(response.statusCode(), 200);
     }
 }
