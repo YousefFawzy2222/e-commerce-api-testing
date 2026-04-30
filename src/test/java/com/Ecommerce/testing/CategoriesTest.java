@@ -3,6 +3,7 @@ package com.Ecommerce.testing;
 import Utils.CategoryUtils;
 import modesl.request_models.CategoryDTO;
 import io.restassured.response.Response;
+import modesl.request_models.ProductDTO;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -33,5 +34,15 @@ public class CategoriesTest {
     public void getInvalidCategory() {
         Response response = CategoryUtils.getCategory("0");
         Assert.assertEquals(response.statusCode(), 400, "Status is not correct");
+    }
+    @Test
+    public void createCategory() {
+        CategoryDTO body = CategoryDTO.builder()
+                .name("New Category " + System.currentTimeMillis())
+                .image("https://placeimg.com/640/480/any")
+                .build();
+        Response response = CategoryUtils.createCategory(body);
+        Assert.assertEquals(response.statusCode(), 201, "Status is not correct");
+
     }
 }

@@ -1,7 +1,7 @@
 package Utils;
 
-import Utils.ApiRequests;
 import io.restassured.response.Response;
+import modesl.request_models.CategoryDTO;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,5 +13,8 @@ public class CategoryUtils {
     public static Response getAllCategories()
     {
         return ApiRequests.get(Constants.CATEGORY_END_POINT);
+    }
+    public static Response createCategory(CategoryDTO body) {
+        return Utils.ApiRequests.post(Constants.CATEGORY_END_POINT, body);
     }
 }

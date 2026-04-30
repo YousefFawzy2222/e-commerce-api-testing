@@ -11,7 +11,11 @@ public class ApiRequests {
                 .log().all()
                 .baseUri(Constants.BASE_URL)
                 .when()
-                .get(endPoint);
+                .get(endPoint)
+                .then()
+                .log().all()
+                .extract()
+                .response();
     }
 
     public static Response get(String endPoint, String path) {
@@ -19,7 +23,11 @@ public class ApiRequests {
                 .log().all()
                 .baseUri(Constants.BASE_URL)
                 .when()
-                .get(endPoint + "/" + path);
+                .get(endPoint + "/" + path).
+                then()
+                .log().all()
+                .extract()
+                .response();
     }
 
     public static Response post(String endPoint, Object body) {
@@ -29,7 +37,11 @@ public class ApiRequests {
                 .contentType(ContentType.JSON)
                 .body(body)
                 .when()
-                .post(endPoint);
+                .post(endPoint)
+                .then()
+                .log().all()
+                .extract()
+                .response();
     }
 
     public static Response put(String endPoint, int id, Object body) {
@@ -39,6 +51,10 @@ public class ApiRequests {
                 .contentType(ContentType.JSON)
                 .body(body)
                 .when()
-                .put(endPoint + "/" + id);
+                .put(endPoint + "/" + id)
+                .then()
+                .log().all()
+                .extract()
+                .response();
     }
 }
